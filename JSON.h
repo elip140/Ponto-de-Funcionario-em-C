@@ -5,17 +5,33 @@
 
 struct Funcionario{
 	int Codigo;
-	char Nome[100];
-	char Ocupacao[100];
+	char *Nome;
+	char *Ocupacao;
 	
 };
 
 struct Log{
 	int Cod_Func;
-	char Horario[100];
-	char Finalidade[100];
+	char *Horario;
+	char *Finalidade;
 };
 
-void Teste(){
-	printf("TESTANDO FUNÇÃO");
+void LerBD(){
+	FILE *fp;
+	char *line;
+	
+	
+	if(fp=fopen("Funcionarios.txt", "r")){
+		
+		while((fscanf(fp, "%s", line))!=EOF){
+			printf("%s - \n", line);
+		}
+		
+		printf("\n\nBALLS");
+	}
+	else{
+		printf("Erro ao abrir o arquivo Funcionarios.txt");
+	}
+	
+	fclose(fp);
 }
