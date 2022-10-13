@@ -6,24 +6,6 @@
 
 
 int main(int argc, char *argv[]) {
-	
-	FILE *fp;
-	char *line;
-	printf("TESTE");
-	
-	if(fp=fopen("Funcionarios.txt", "r")){
-		printf("TESTE");
-		
-		while((fscanf(fp, "%s", line))!=EOF){
-			printf("%s - \n", line);
-		}
-		
-		printf("\n\nBALLS");
-	}
-	else{
-		printf("Erro ao abrir o arquivo Funcionarios.txt");
-	}
-	
-	fclose(fp);
+	LerBD();
 	return 0;
 }

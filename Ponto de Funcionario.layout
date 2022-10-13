@@ -2,12 +2,12 @@
 Order=0,1
 Focused=1
 [Editor_0]
-CursorCol=2
-CursorRow=12
+CursorCol=35
+CursorRow=8
 TopLine=1
 LeftChar=1
 [Editor_1]
-CursorCol=2
-CursorRow=20
-TopLine=5
+CursorCol=23
+CursorRow=40
+TopLine=21
 LeftChar=1

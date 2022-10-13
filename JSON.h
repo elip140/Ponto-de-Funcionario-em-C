@@ -18,13 +18,23 @@ struct Log{
 
 void LerBD(){
 	FILE *fp;
-	char *line;
+	char buffer[150];
+	int n=0;
 	
 	
 	if(fp=fopen("Funcionarios.txt", "r")){
+		fscanf(fp, "%i", &n);
 		
-		while((fscanf(fp, "%s", line))!=EOF){
-			printf("%s - \n", line);
+		
+		
+		while((fscanf(fp, "%s", &buffer))!=EOF){
+			
+			char *token = strtok(buffer, ",");
+			printf("Teste1 - %s - a\n", token);
+			token = strtok(NULL, ",");
+				printf("Teste2 - %s - a\n", token);
+				token = strtok(NULL, ",");
+					printf("Teste3 - %s - a\n", token);
 		}
 		
 		printf("\n\nBALLS");
