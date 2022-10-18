@@ -30,7 +30,7 @@ void LerBD(){
 		while((fscanf(fp, "%s", &buffer))!=EOF){
 			
 			char *token = strtok(buffer, ",");
-			printf("Teste1 - %s - a\n", token);
+			printf("Teste1 - %s - q\n", token);
 			token = strtok(NULL, ",");
 				printf("Teste2 - %s - a\n", token);
 				token = strtok(NULL, ",");
