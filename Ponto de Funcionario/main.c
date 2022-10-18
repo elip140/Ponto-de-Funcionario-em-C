@@ -6,6 +6,6 @@
 
 
 int main(int argc, char *argv[]) {
-	LerBD();
+	writeBD();
 	return 0;
 }
