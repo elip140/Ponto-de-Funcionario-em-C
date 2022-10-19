@@ -16,49 +16,48 @@ struct Log{
 	char *Finalidade;
 };
 
-void LerBD(){
+Funcionario* LerBD(){
 	FILE *fp;
 	char buffer[150];
 	int n=0;
 
 
-	if(fp=fopen("Funcionarios.txt", "r")){
+	if(fp=fopen("Teste3.txt", "r")){
 		fscanf(fp, "%i", &n);
 
-		Funcionario* Funcionarios = malloc(n * sizeof(struct func));
+		printf("NUMERO: %i\n\n", n);
+
+		Funcionario* Lista = malloc(n * sizeof(struct func));
+
+
+		int Cod;
+		char* Nome = (char*)malloc(sizeof(char*));
+		char* Ocup = (char*)malloc(sizeof(char*));
 
         int i = 0;
-		while((fscanf(fp, "%s", &buffer))!=EOF){
-			char *token = strtok(buffer, ",");
-			Funcionarios[i].Codigo = atoi(token);
-			printf("%s \n", token);
 
-			token = strtok(NULL, ",");
-			Funcionarios[i].Nome=(char*)malloc(sizeof(char*));
-			strcpy(Funcionarios[i].Nome, token);
-			printf("%s \n", token);
+		while(fscanf(fp, "%i,%[^,],%[^\n]",&Cod, Nome, Ocup)!=EOF){
+			Lista[i].Codigo = Cod;
 
-			token = strtok(NULL, ",");
-			Funcionarios[i].Ocupacao=(char*)malloc(sizeof(char*));
-			strcpy(Funcionarios[i].Ocupacao, token);
-			printf("%s \n", token);
+            Lista[i].Nome = (char*)malloc(sizeof(Nome));
+			strcpy(Lista[i].Nome, Nome);
 
+			Lista[i].Ocupacao = (char*)malloc(sizeof(Ocup));
+			strcpy(Lista[i].Ocupacao, Ocup);
+
+			printf("LerBD %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
 			i++;
 		}
-		for (i = 0; i < n; i++){
-            free(Funcionarios[i].Nome);
-            free(Funcionarios[i].Ocupacao);
-            //free(Funcionarios[i]);
-        }
-		printf(" %i - %s - %s \n", Funcionarios[0].Codigo, Funcionarios[0].Nome, Funcionarios[0].Ocupacao);
-		printf(" %i - %s - %s \n", Funcionarios[1].Codigo, Funcionarios[1].Nome, Funcionarios[1].Ocupacao);
-		printf(" %i - %s - %s \n", Funcionarios[2].Codigo, Funcionarios[2].Nome, Funcionarios[2].Ocupacao);
+		fclose(fp);
+		return Lista;
+
 	}
 	else{
 		printf("Erro ao abrir o arquivo Funcionarios.txt");
+		fclose(fp);
 	}
 
-	fclose(fp);
+
 }
 
 void Escrever(Funcionario *func, int Cod, char* Nome, char* Ocup)
@@ -70,10 +69,14 @@ void Escrever(Funcionario *func, int Cod, char* Nome, char* Ocup)
 
     func->Ocupacao = (char*)malloc(sizeof(Ocup));
     strcpy(func->Ocupacao, Ocup);
+
+    printf("Escrever -> %i - %s - %s \n", func->Codigo, func->Nome, func->Ocupacao);
 }
 
 void writeBD(){
+    //int n = sizeof(Lista)/sizeof(struct func);
     int n = 6;
+
     Funcionario* Funcionarios = malloc(n * sizeof(struct func));
 
     Escrever(&Funcionarios[0], 1, "Teste1", "TesteOC");
@@ -83,7 +86,6 @@ void writeBD(){
     Escrever(&Funcionarios[4], 5, "Teste5 o", "TesteOC5 d");
     Escrever(&Funcionarios[5], 6, "Teste6 A", "TesteOC6 - ");
 
-    printf("%i - %s - %s", Funcionarios[2].Codigo, Funcionarios[2].Nome, Funcionarios[2].Ocupacao);
 
     FILE *outfile;
 
@@ -95,17 +97,50 @@ void writeBD(){
         exit(1);
     }
 
+	fprintf(outfile, "%i", n);
+
     int i=0;
     for(i=0; i<n; i++){
-        fwrite(&Funcionarios[i], sizeof(Funcionarios[i]), 1, outfile);
+        fprintf(outfile, "\n%i\n%s\n%s", Funcionarios[i].Codigo, Funcionarios[i].Nome, Funcionarios[i].Ocupacao);
     }
 
-    if(fwrite != 0)
-        printf("contents to file written successfully !\n");
-    else
-        printf("error writing file !\n");
+    printf("Informação Escrita no Arquivo");
 
     fclose(outfile);
 }
 
+void Ler2(){
+	Funcionario Funcio[6];
+	FILE * infile = fopen("Teste.bin", "r");
 
+	if(infile != NULL)
+	{
+		int i = 0;
+		while(1)
+		{
+			Funcionario fun;
+
+			// fread ler os dados
+			// retorna a quantidade de elementos lidos com sucesso
+			size_t r = fread(&fun, sizeof(Funcionario), 1, infile);
+
+			// se retorno for menor que o count, então sai do loop
+			if(r < 1)
+				break;
+			else
+				Funcio[i++] = fun;
+		}
+		fclose(infile); // fecha o arquivo
+
+		i=0;
+		printf("\n\nLeitura\n");
+		for(i=0; i<6; i++){
+			printf("\n %i - %s - %s", Funcio[i].Codigo, Funcio[i].Nome, Funcio[i].Ocupacao);
+		}
+	}
+	else
+	{
+		printf("\nErro ao abrir o arquivo para leitura!\n");
+		exit(1); // aborta o programa
+	}
+}
