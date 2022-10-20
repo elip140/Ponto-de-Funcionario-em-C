@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1666124133 source:c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\main.c
+1666295060 source:c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\main.c
 	<stdio.h>
 	<stdlib.h>
 	"JSON.h"
 
-1666125131 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\json.h
+1666296134 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\json.h
 	<stdio.h>
 	<stdlib.h>
 

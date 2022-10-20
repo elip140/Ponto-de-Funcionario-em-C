@@ -16,17 +16,15 @@ struct Log{
 	char *Finalidade;
 };
 
-Funcionario* LerBD(int *n){
+Funcionario* LerBD( int *n){
 	FILE *fp;
-	char buffer[150];
 
-
-	if(fp=fopen("Teste3.txt", "r")){
+	if(fp=fopen("Funcionarios.txt", "r")){
 		fscanf(fp, "%i", n);
 
 		printf("NUMERO: %i\n\n", *n);
 
-		Funcionario* Lista = malloc(*n * sizeof(struct func));
+		Funcionario *Lista = malloc(*n * sizeof(struct func));
 
 
 		int Cod;
@@ -36,20 +34,15 @@ Funcionario* LerBD(int *n){
         int i = 0;
 
 		while(fscanf(fp, "%i,%[^,],%[^\n]",&Cod, Nome, Ocup)!=EOF){
-			Lista[i].Codigo = Cod;
 
-            Lista[i].Nome = (char*)malloc(sizeof(Nome));
-			strcpy(Lista[i].Nome, Nome);
+            AddToList(&Lista[0], &i, Cod, Nome, Ocup);
 
-			Lista[i].Ocupacao = (char*)malloc(sizeof(Ocup));
-			strcpy(Lista[i].Ocupacao, Ocup);
-
-			printf("LerBD %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
-			i++;
+			printf("LerBD %i - %s - %s \n", Lista[i-1].Codigo, Lista[i-1].Nome, Lista[i-1].Ocupacao);
+			//i++;
 		}
 		fclose(fp);
-		return Lista;
 
+		return Lista;
 	}
 	else{
 		printf("Erro ao abrir o arquivo Funcionarios.txt");
@@ -59,20 +52,21 @@ Funcionario* LerBD(int *n){
 
 }
 
-void Escrever(Funcionario *func, int Cod, char* Nome, char* Ocup)
+void AddToList(Funcionario *Lista, int* n, int Cod, char* Nome, char* Ocup)
 {
-    func->Codigo = Cod;
+    Lista[*n].Codigo = Cod;
 
-    func->Nome = (char*)malloc(sizeof(Nome));
-    strcpy(func->Nome, Nome);
+    Lista[*n].Nome = (char*)malloc(sizeof(Nome));
+    strcpy(Lista[*n].Nome, Nome);
 
-    func->Ocupacao = (char*)malloc(sizeof(Ocup));
-    strcpy(func->Ocupacao, Ocup);
+    Lista[*n].Ocupacao = (char*)malloc(sizeof(Ocup));
+    strcpy(Lista[*n].Ocupacao, Ocup);
 
-    printf("Escrever -> %i - %s - %s \n", func->Codigo, func->Nome, func->Ocupacao);
+    *n = *n+1;
 }
 
-void writeBD(Funcionario *Lista){
+void writeBD(Funcionario *Lista, int n){
+
 
     //printf("\n\n Teste Write = %i", n);
 
@@ -83,7 +77,7 @@ void writeBD(Funcionario *Lista){
     Escrever(&Funcionarios[2], 3, "Teste3 Ba", "TesteOC3 e");
     Escrever(&Funcionarios[3], 4, "Teste4 ll", "TesteOC4 a");
     Escrever(&Funcionarios[4], 5, "Teste5 o", "TesteOC5 d");
-    Escrever(&Funcionarios[5], 6, "Teste6 A", "TesteOC6 - ");
+    Escrever(&Funcionarios[5], 6, "Teste6 A", "TesteOC6 - ");*/
 
 
     FILE *outfile;
@@ -100,46 +94,10 @@ void writeBD(Funcionario *Lista){
 
     int i=0;
     for(i=0; i<n; i++){
-        fprintf(outfile, "\n%i\n%s\n%s", Funcionarios[i].Codigo, Funcionarios[i].Nome, Funcionarios[i].Ocupacao);
+        fprintf(outfile, "\n%i,%s,%s", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
     }
 
     printf("Informação Escrita no Arquivo");
 
-    fclose(outfile);*/
-}
-
-void Ler2(){
-	Funcionario Funcio[6];
-	FILE * infile = fopen("Teste.bin", "r");
-
-	if(infile != NULL)
-	{
-		int i = 0;
-		while(1)
-		{
-			Funcionario fun;
-
-			// fread ler os dados
-			// retorna a quantidade de elementos lidos com sucesso
-			size_t r = fread(&fun, sizeof(Funcionario), 1, infile);
-
-			// se retorno for menor que o count, então sai do loop
-			if(r < 1)
-				break;
-			else
-				Funcio[i++] = fun;
-		}
-		fclose(infile); // fecha o arquivo
-
-		i=0;
-		printf("\n\nLeitura\n");
-		for(i=0; i<6; i++){
-			printf("\n %i - %s - %s", Funcio[i].Codigo, Funcio[i].Nome, Funcio[i].Ocupacao);
-		}
-	}
-	else
-	{
-		printf("\nErro ao abrir o arquivo para leitura!\n");
-		exit(1); // aborta o programa
-	}
+    fclose(outfile);
 }

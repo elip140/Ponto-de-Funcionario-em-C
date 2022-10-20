@@ -18,22 +18,28 @@ int main(int argc, char *argv[]) {
 
     Funcionario f = {7, "TesteADD", "TesteADDOC"};
 
-    printf("%i - %s - %s \n", f.Codigo, f.Nome, f.Ocupacao);
 
+    AddToList(&Lista[0], &n, 7, "TesteADD", "TesteADDOCUP");
+    AddToList(&Lista[0], &n, 8, "TesteADD2", "TesteADDOCUP2");
+    AddToList(&Lista[0], &n, 9, "TesteADD3", "TesteADDOCUP3");
 
 
     //Lista = realloc(Lista, (n+1)*sizeof(struct func));
-    Lista[6] = f;
+    /*Lista[6] = f;
     Lista[7] = f;
     Lista[8] = f;
-    Lista[9] = f;
+    Lista[9] = f;*/
 
-    n = sizeof(Lista[]);
+    //n = sizeof(Lista[]);
 
-    printf("\n\nTamanho: %i", n);
+    //printf("\n\nTamanho: %i", n);
 
-    printf("%i - %s - %s \n", Lista[6].Codigo, Lista[6].Nome, Lista[6].Ocupacao);
+    printf("\n- Teste De Lista Depois de ADD -\n");
+    for(i=0; i<n; i++){
+        printf(" %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
+    }
 
-	writeBD(Lista);
+    printf("\n\nTamanho: %i", sizeof(Lista));
+	//writeBD(Lista, n);
 	return 0;
 }
