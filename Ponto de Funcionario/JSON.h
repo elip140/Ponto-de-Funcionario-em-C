@@ -16,18 +16,17 @@ struct Log{
 	char *Finalidade;
 };
 
-Funcionario* LerBD(){
+Funcionario* LerBD(int *n){
 	FILE *fp;
 	char buffer[150];
-	int n=0;
 
 
 	if(fp=fopen("Teste3.txt", "r")){
-		fscanf(fp, "%i", &n);
+		fscanf(fp, "%i", n);
 
-		printf("NUMERO: %i\n\n", n);
+		printf("NUMERO: %i\n\n", *n);
 
-		Funcionario* Lista = malloc(n * sizeof(struct func));
+		Funcionario* Lista = malloc(*n * sizeof(struct func));
 
 
 		int Cod;
@@ -73,11 +72,11 @@ void Escrever(Funcionario *func, int Cod, char* Nome, char* Ocup)
     printf("Escrever -> %i - %s - %s \n", func->Codigo, func->Nome, func->Ocupacao);
 }
 
-void writeBD(){
-    //int n = sizeof(Lista)/sizeof(struct func);
-    int n = 6;
+void writeBD(Funcionario *Lista){
 
-    Funcionario* Funcionarios = malloc(n * sizeof(struct func));
+    //printf("\n\n Teste Write = %i", n);
+
+    /*Funcionario* Funcionarios = malloc(n * sizeof(struct func));
 
     Escrever(&Funcionarios[0], 1, "Teste1", "TesteOC");
     Escrever(&Funcionarios[1], 2, "Teste2 LLS", "TesteOC2");
@@ -106,7 +105,7 @@ void writeBD(){
 
     printf("Informação Escrita no Arquivo");
 
-    fclose(outfile);
+    fclose(outfile);*/
 }
 
 void Ler2(){
