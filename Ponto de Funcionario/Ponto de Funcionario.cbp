@@ -31,7 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="JSON.h" />
+		<Unit filename="Funcionario.h" />
+		<Unit filename="Log.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
