@@ -33,7 +33,8 @@
 		</Compiler>
 		<Unit filename="Funcionario.h" />
 		<Unit filename="Log.h" />
-		<Unit filename="main.c">
+		<Unit filename="main.c" />
+		<Unit filename="FuncionariosFuncoes.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
