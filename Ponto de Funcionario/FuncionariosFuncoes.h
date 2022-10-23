@@ -56,33 +56,29 @@ int vertodos(int escolha){
 }
 
 
-int main(){
+void aloha(){
     int escolha, escolhaG;
 
     while(escolha==0){
         escolhaG = escolhageral(escolhaG);
 
         switch(escolhaG){
-case 0:
-    break;
-case 1:
-    escolha = adicionar(escolha);
-    break;
-case 2:
-    escolha = modificar(escolha);
-    break;
-case 3:
-    escolha = excluir(escolha);
-    break;
-case 4:
-    escolha = vertodos(escolha);
-    break;
+            case 0:
+                break;
+            case 1:
+                escolha = adicionar(escolha);
+                break;
+            case 2:
+                escolha = modificar(escolha);
+                break;
+            case 3:
+                escolha = excluir(escolha);
+                break;
+            case 4:
+                escolha = vertodos(escolha);
+                break;
+        }
     }
-
-}
-
-
-return 0;
 }
 
 
