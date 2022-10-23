@@ -8,16 +8,26 @@
 	<stdio.h>
 	<stdlib.h>
 
-1666281801 source:c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\main.c
+1666549346 source:c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\main.c
 	<stdio.h>
 	<stdlib.h>
-	"JSON.h"
+	<time.h>
+	"Funcionario.h"
+	"Log.h"
 
 1666281861 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\json.h
 	<stdio.h>
 	<stdlib.h>
 
 1666376905 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\funcionario.h
+	<stdio.h>
+	<stdlib.h>
+
+1666541367 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\funcionario.h
+	<stdio.h>
+	<stdlib.h>
+
+1666549314 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\log.h
 	<stdio.h>
 	<stdlib.h>
 

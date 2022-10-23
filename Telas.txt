@@ -1,0 +1,22 @@
+Tela Inicial:
+- Funcionarios
+- Funcionalidade dos Logs
+- Pesquisar em Logs
+- Sair do Programa
+
+Tela Funcionarios:
+- Ver Todos
+- Adicionar Novo
+- Editar Existente
+- Excluir Funcionario
+- Sair para Tela Principal
+
+Tela Funcionalidade dos Logs:
+- Adicionar Log (Fazer Ponto)
+- Sair para Tela Principal
+
+Pesquisar em Logs:
+- Mostrar todos os Logs
+- Mostrar o Tempo Medio de todos os Funcionarios
+- Mostrar Logs de Funcionario Especifico
+- Sair para Tela Principal
