@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Funcionario.h" />
+		<Unit filename="FuncionariosFuncoes.h" />
 		<Unit filename="Log.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
