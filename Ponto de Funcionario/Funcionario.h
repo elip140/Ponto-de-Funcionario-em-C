@@ -36,7 +36,15 @@ Funcionario* Funcio_LerBD(int *tam){
         int i = 0;
 
 		while(fscanf(fp, "%i;%[^;];%[^\n]",&Cod, Nome, Ocup)!=EOF){
-            Funcio_AddToList(&Lista[0], &i, Cod, Nome, Ocup);
+            Lista[i].Codigo = Cod;
+
+            Lista[i].Nome = (char*)malloc(sizeof(Nome));
+            strcpy(Lista[i].Nome, Nome);
+
+            Lista[i].Ocupacao = (char*)malloc(sizeof(Ocup));
+            strcpy(Lista[i].Ocupacao, Ocup);
+
+            i++;
 		}
 		fclose(fp);
 
@@ -67,6 +75,9 @@ void Funcio_writeBD(Funcionario *Lista, int tam){
     int i=0;
     for(i=0; i<tam; i++){
         fprintf(outfile, "\n%i;%s;%s", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
+
+        free(Lista[i].Nome);
+        free(Lista[i].Ocupacao);
     }
 
     printf("Informação Escrita no Arquivo");
@@ -78,16 +89,21 @@ void Funcio_writeBD(Funcionario *Lista, int tam){
      - Recebe: Lista para armazenar, Tamanho da lista, Informações Novas (Cod, Nome, Ocup)
      - Retorna: Lista com o Novo Elemento, Tamanho Novo pelo ponteiro
 */
-void Funcio_AddToList(Funcionario *Lista, int* tam, int Cod, char* Nome, char* Ocup)
+void Funcio_AddToList(Funcionario **Lista, int* tam, int Cod, char* Nome, char* Ocup)
 {
-    //Lista = realloc(Lista, (n*sizeof(Funcionario)));
-    Lista[*tam].Codigo = Cod;
+    *Lista = realloc(*Lista, ((*tam+1)*sizeof(struct funcio)));
 
-    Lista[*tam].Nome = (char*)malloc(sizeof(Nome));
-    strcpy(Lista[*tam].Nome, Nome);
+    if(*Lista==NULL){
+        printf("\nErro no realloc ao tentar alocar memoria no ADD Funcionarios\n");
+    }
 
-    Lista[*tam].Ocupacao = (char*)malloc(sizeof(Ocup));
-    strcpy(Lista[*tam].Ocupacao, Ocup);
+    (*Lista+*tam)->Codigo = Cod;
+
+    (*Lista+*tam)->Nome = (char*)malloc(sizeof(char*));
+    strcpy((*Lista+*tam)->Nome, Nome);
+
+    (*Lista+*tam)->Ocupacao = (char*)malloc(sizeof(char*));
+    strcpy((*Lista+*tam)->Ocupacao, Ocup);
 
     *tam = *tam+1;
 }

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "Funcionario.h"
 #include "Log.h"
+#include "Teste.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop
 
@@ -10,8 +10,36 @@
 
 
 int main(int argc, char *argv[]) {
-    int n = 0;
-    Funcionario* Funcio_Lista = Funcio_LerBD(&n);
+    int n=0;
+    //Funcionario* Lista_Funcio = Funcio_LerBD(&n);
+
+    int m=0;
+    Log* Lista = Log_LerBD(&m);
+
+    Teste_Log_Visualizar(&Lista[0], &m);
+
+
+
+    //Teste_Funcio_Visualizar(&Lista_Funcio[0], &n);
+    //Teste_Funcio_Add(&Lista_Funcio, &n);
+    //Teste_Funcio_Remove(&Lista_Funcio[0], &n);
+    //Teste_Funcio_Edit(&Lista_Funcio[0], &n);
+
+
+
+
+
+    //Funcio_writeBD(Lista_Funcio, n);
+
+
+
+
+
+
+	return 0;
+}
+
+/*
 
     int m=0;
     Log* Lista = Log_LerBD(&m);
@@ -34,49 +62,4 @@ int main(int argc, char *argv[]) {
         printf("\n%i - %s - %s - %i", Lista[i].Cod_Funcio, Lista[i].Nome_Funcio, Lista[i].Horario, Lista[i].Finalidade);
     }
 
-    Log_writeBD(Lista, m);
-
-
-
-
-
-
-	return 0;
-}
-
-
-/*
-printf("\n- Teste De Lista -\n");
-    int i=0;
-    for(i=0; i<n; i++){
-        printf(" %i - %s - %s \n", Funcio_Lista[i].Codigo, Funcio_Lista[i].Nome, Funcio_Lista[i].Ocupacao);
-    }
-
-Funcio_AddToList(&Lista[0], &n, 7, "TesteADD", "TesteADDOCUP");
-    Funcio_AddToList(&Lista[0], &n, 8, "TesteADD2", "TesteADDOCUP2");
-    Funcio_AddToList(&Lista[0], &n, 9, "TesteADD3", "TesteADDOCUP3");
-
-    printf("\n- Teste De Lista Depois de ADD -\n");
-    for(i=0; i<n; i++){
-        printf(" %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
-    }
-
-    Funcio_RemoveFromList(&Lista[0], 3, &n);
-    Funcio_RemoveFromList(&Lista[0], 3, &n);
-    Funcio_RemoveFromList(&Lista[0], 6, &n);
-
-    printf("\n- Teste De Lista Depois de Remove -\n");
-    for(i=0; i<n; i++){
-        printf(" %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
-    }*/
-
-
-    /*Funcio_EditFromList(Lista, n, 4, "TesteEDIT", "TesteEDIT OCUP 1");
-    Funcio_EditFromList(Lista, n, 5, "TesteEDIT 2", "TesteEDIT OCUP 2");
-    Funcio_EditFromList(Lista, n, 6, "TesteEDIT 3", "TesteEDIT OCUP 3");
-
-
-    printf("\n- Teste De Lista Depois de EDIT -\n");
-    for(i=0; i<n; i++){
-        printf(" %i - %s - %s \n", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
-    }*/
+    Log_writeBD(Lista, m);*/

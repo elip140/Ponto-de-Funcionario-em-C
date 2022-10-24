@@ -21,8 +21,8 @@ Log* Log_LerBD(int *tam){
 
 		int Cod_Funcio;
 		int Finalidade;
-		char* Nome_Funcio = (char*)malloc(sizeof(char*));
-		char* Horario = (char*)malloc(sizeof(char*));
+		char Nome_Funcio[30];
+		char Horario[30];
 
         int i = 0;
 
@@ -33,17 +33,17 @@ Log* Log_LerBD(int *tam){
 
             //printf("\nL -> %i - %s - %s - %i", L.Cod_Funcio, L.Nome_Funcio, L.Horario, L.Finalidade);
 
-            Lista[i] = L;
+            //Lista[i] = L;
 
-            /*Lista[i].Cod_Funcio = L.Cod_Funcio;
+            Lista[i].Cod_Funcio = L.Cod_Funcio;
 
             Lista[i].Finalidade = L.Finalidade;
 
-            Lista[i].Horario = (char*)malloc(sizeof(L.Horario));
+            Lista[i].Horario = (char*)malloc(sizeof(char*));
             strcpy(Lista[i].Horario, L.Horario);
 
-            Lista[i].Nome_Funcio = (char*)malloc(sizeof(L.Nome_Funcio));
-            strcpy(Lista[i].Nome_Funcio, L.Nome_Funcio);*/
+            Lista[i].Nome_Funcio = (char*)malloc(sizeof(char*));
+            strcpy(Lista[i].Nome_Funcio, L.Nome_Funcio);
 
 
             //printf("\nADD LOG LIST Function -> %i - %s - %s - %i", Lista[i].Cod_Funcio, Lista[i].Nome_Funcio, Lista[i].Horario, Lista[i].Finalidade);
@@ -77,7 +77,7 @@ void Log_writeBD(Log* Lista, int tam){
 
     int i=0;
     for(i=0; i<tam; i++){
-        fprintf(outfile, "\n%i;%s;%s;%i", Lista[i].Cod_Funcio, Lista[i].Nome_Funcio, Lista[i].Horario, Lista[i].Finalidade);
+        fprintf(outfile, "\n%i;%i;%s;%s", Lista[i].Cod_Funcio, Lista[i].Finalidade, Lista[i].Nome_Funcio, Lista[i].Horario);
     }
 
     printf("Informação Escrita no Arquivo");
