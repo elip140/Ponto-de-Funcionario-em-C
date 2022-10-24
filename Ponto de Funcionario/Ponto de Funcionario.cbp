@@ -34,6 +34,7 @@
 		<Unit filename="Funcionario.h" />
 		<Unit filename="FuncionariosFuncoes.h" />
 		<Unit filename="Log.h" />
+		<Unit filename="TelaInicial.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

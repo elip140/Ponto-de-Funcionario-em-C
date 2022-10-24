@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int escolhageral(int escolhaG){
+int escolhageral(int a){
     int x;
     printf("Oque voce deseja fazer?\nDigite (1) para adicionar Funcionarios\nDigite (2) para mudar as informacoes dos Funcionarios\n");
     printf("Digite (3) para excluir funcionarios\nDigite (4) para ver todos os funcionarios na lista\n\ndigite (0): para voltar ao menu principal\n");
@@ -56,7 +56,7 @@ int vertodos(int escolha){
 }
 
 
-void aloha(){
+int aloha(){
     int escolha, escolhaG;
 
     while(escolha==0){
@@ -79,6 +79,7 @@ void aloha(){
                 break;
         }
     }
+    return 1;
 }
 
 
