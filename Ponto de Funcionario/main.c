@@ -10,30 +10,44 @@
 
 
 int main(int argc, char *argv[]) {
-    int n=0;
-    //Funcionario* Lista_Funcio = Funcio_LerBD(&n);
+    int tam = Funcio_LerTam();
+    Funcionario* Lista_Funcio = malloc(tam * sizeof(Funcionario));
+    Funcio_LerBD(&Lista_Funcio);
 
-    int m=0;
-    Log* Lista = Log_LerBD(&m);
+    int n = Log_LerTam();
+    Log* Lista = malloc(n * sizeof(Log));
+    Log_LerBD(&Lista);
 
-    Teste_Log_Visualizar(&Lista[0], &m);
-
-
-
-    //Teste_Funcio_Visualizar(&Lista_Funcio[0], &n);
-    //Teste_Funcio_Add(&Lista_Funcio, &n);
-    //Teste_Funcio_Remove(&Lista_Funcio[0], &n);
-    //Teste_Funcio_Edit(&Lista_Funcio[0], &n);
+    Teste_Log_Visualizar(&Lista, &n);
 
 
 
+    Teste_Funcio_Visualizar(&Lista_Funcio[0], &tam);
+    Teste_Funcio_Add(&Lista_Funcio, &tam);
+    Teste_Funcio_Remove(&Lista_Funcio[0], &tam);
+    Teste_Funcio_Edit(&Lista_Funcio[0], &n);
 
 
     //Funcio_writeBD(Lista_Funcio, n);
 
 
+    /*int i=0;
+    printf("\n\nfree");
+    for(i=0; i<tam; i++){
+        printf("\nFuncio -> I = %i", i);
+        free(Lista_Funcio[i].Nome);
+        free(Lista_Funcio[i].Ocupacao);
+    }*/
 
+    //free(Lista_Funcio);
 
+    /*printf("\n\nfree");
+    for(i=0; i<n; i++){
+        printf("\nLog -> I = %i", i);
+        free(Lista[i].Nome_Funcio);
+        free(Lista[i].Horario);
+    }*/
+    //free(Lista);
 
 
 	return 0;

@@ -56,11 +56,11 @@ void Teste_Funcio_Edit(Funcionario* Lista, int* n){
     }
 }
 
-void Teste_Log_Visualizar(Log* Lista, int* n){
+void Teste_Log_Visualizar(Log **Lista, int* n){
     printf("\n- Teste De Lista Logs -\n");
     int i=0;
     for(i=0; i<*n; i++){
-        printf(" %i - %s - %s - %i\n", Lista[i].Cod_Funcio, Lista[i].Nome_Funcio, Lista[i].Horario, Lista[i].Finalidade);
+        printf(" %i - %s - %i\n", (*Lista)[i].Cod_Funcio, (*Lista)[i].Horario, (*Lista)[i].Finalidade);
     }
 }
 
@@ -74,7 +74,7 @@ void Teste_Log_Add(Log* Lista, int* n, Funcionario* Funcio_Lista, int* tam_F){
     printf("\n- Teste De Lista Logs Depois de ADD -\n");
     int i=0;
     for(i=0; i<*n; i++){
-        printf("\n%i - %s - %s - %i", Lista[i].Cod_Funcio, Lista[i].Nome_Funcio, Lista[i].Horario, Lista[i].Finalidade);
+        printf("\n%i - %s - %i", Lista[i].Cod_Funcio, Lista[i].Horario, Lista[i].Finalidade);
     }
 }
 

@@ -18,16 +18,26 @@ typedef struct funcio{
     - Recebe: Ponteiro para Tamanho
     - Retorna: Lista com os dados do txt, Tamanho da Lista para o Ponteiro
     */
-Funcionario* Funcio_LerBD(int *tam){
+
+int Funcio_LerTam(){
+    FILE *fp;
+    int tam=0;
+
+	if(fp=fopen("Funcionarios.txt", "r")){
+		fscanf(fp, "%i", &tam);
+		return tam;
+	}
+	else{
+        printf("Erro ao abrir o arquivo Funcionarios.txt");
+	}
+}
+
+void Funcio_LerBD(Funcionario **Lista){
 	FILE *fp;
 
 	if(fp=fopen("Funcionarios.txt", "r")){
-		fscanf(fp, "%i", tam);
-
-		printf("NUMERO: %i\n\n", *tam);
-
-		Funcionario *Lista = malloc(*tam * sizeof(Funcionario));
-
+        int tam;
+        fscanf(fp, "%i", &tam);
 
 		int Cod;
 		char* Nome = (char*)malloc(sizeof(char*));
@@ -36,19 +46,21 @@ Funcionario* Funcio_LerBD(int *tam){
         int i = 0;
 
 		while(fscanf(fp, "%i;%[^;];%[^\n]",&Cod, Nome, Ocup)!=EOF){
-            Lista[i].Codigo = Cod;
+            (*Lista)[i].Codigo = Cod;
 
-            Lista[i].Nome = (char*)malloc(sizeof(Nome));
-            strcpy(Lista[i].Nome, Nome);
+            (*Lista)[i].Nome = (char*)malloc(sizeof(char*));
+            strcpy((*Lista)[i].Nome, Nome);
 
-            Lista[i].Ocupacao = (char*)malloc(sizeof(Ocup));
-            strcpy(Lista[i].Ocupacao, Ocup);
+            (*Lista)[i].Ocupacao = (char*)malloc(sizeof(char*));
+            strcpy((*Lista)[i].Ocupacao, Ocup);
 
             i++;
 		}
-		fclose(fp);
 
-		return Lista;
+		free(Nome);
+		free(Ocup);
+
+		fclose(fp);
 	}
 	else{
 		printf("Erro ao abrir o arquivo Funcionarios.txt");
@@ -97,13 +109,13 @@ void Funcio_AddToList(Funcionario **Lista, int* tam, int Cod, char* Nome, char* 
         printf("\nErro no realloc ao tentar alocar memoria no ADD Funcionarios\n");
     }
 
-    (*Lista+*tam)->Codigo = Cod;
+    (*Lista)[*tam].Codigo = Cod;
 
-    (*Lista+*tam)->Nome = (char*)malloc(sizeof(char*));
-    strcpy((*Lista+*tam)->Nome, Nome);
+    (*Lista)[*tam].Nome = (char*)malloc(sizeof(char*));
+    strcpy((*Lista)[*tam].Nome, Nome);
 
-    (*Lista+*tam)->Ocupacao = (char*)malloc(sizeof(char*));
-    strcpy((*Lista+*tam)->Ocupacao, Ocup);
+    (*Lista)[*tam].Ocupacao = (char*)malloc(sizeof(char*));
+    strcpy((*Lista)[*tam].Ocupacao, Ocup);
 
     *tam = *tam+1;
 }

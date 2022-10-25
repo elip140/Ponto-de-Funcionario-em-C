@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1666642832 source:c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\main.c
+1666728009 source:c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Funcionario.h"
@@ -21,7 +21,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1666642622 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\funcionario.h
+1666724967 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\funcionario.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -33,11 +33,11 @@
 	<stdio.h>
 	<stdlib.h>
 
-1666637514 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\log.h
+1666727946 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\log.h
 	<stdio.h>
 	<stdlib.h>
 
-1666642639 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\teste.h
+1666726812 c:\users\elian\documents\github\ponto-de-funcionari-em-c\ponto de funcionario\teste.h
 	<stdio.h>
 	<stdlib.h>
 
