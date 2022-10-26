@@ -19,34 +19,29 @@ int main(int argc, char *argv[]) {
     Log_LerBD(&Lista);
 
     Teste_Log_Visualizar(&Lista, &n);
+    Teste_Log_Add(&Lista, &n);
+    printf("\n\nTESTE");
 
 
 
-    Teste_Funcio_Visualizar(&Lista_Funcio[0], &tam);
+
+
+    Teste_Funcio_Visualizar(&Lista_Funcio, &tam);
     Teste_Funcio_Add(&Lista_Funcio, &tam);
-    Teste_Funcio_Remove(&Lista_Funcio[0], &tam);
-    Teste_Funcio_Edit(&Lista_Funcio[0], &n);
+    Teste_Funcio_Remove(&Lista_Funcio, &tam);
+    Teste_Funcio_Edit(&Lista_Funcio, &tam);
 
 
     //Funcio_writeBD(Lista_Funcio, n);
 
 
-    /*int i=0;
-    printf("\n\nfree");
+    int i=0;
     for(i=0; i<tam; i++){
-        printf("\nFuncio -> I = %i", i);
         free(Lista_Funcio[i].Nome);
         free(Lista_Funcio[i].Ocupacao);
-    }*/
+    }
 
     //free(Lista_Funcio);
-
-    /*printf("\n\nfree");
-    for(i=0; i<n; i++){
-        printf("\nLog -> I = %i", i);
-        free(Lista[i].Nome_Funcio);
-        free(Lista[i].Horario);
-    }*/
     //free(Lista);
 
 

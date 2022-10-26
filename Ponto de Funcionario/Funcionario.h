@@ -117,6 +117,7 @@ void Funcio_AddToList(Funcionario **Lista, int* tam, int Cod, char* Nome, char* 
     (*Lista)[*tam].Ocupacao = (char*)malloc(sizeof(char*));
     strcpy((*Lista)[*tam].Ocupacao, Ocup);
 
+
     *tam = *tam+1;
 }
 
@@ -124,11 +125,11 @@ void Funcio_AddToList(Funcionario **Lista, int* tam, int Cod, char* Nome, char* 
      - Recebe: Lista para armazenar, Tamanho da lista, Codigo do elemento a ser removido
      - Retorna: Lista sem o Elemento, Tamanho Novo pelo ponteiro
 */
-void Funcio_RemoveFromList(Funcionario *Lista, int Cod, int* tam)
+void Funcio_RemoveFromList(Funcionario **Lista, int Cod, int* tam)
 {
     int i=0, pos=-1;
     for(i=0; i<*tam; i++){
-        if(Lista[i].Codigo==Cod){
+        if((*Lista)[i].Codigo==Cod){
             pos = i;
         }
     }
@@ -138,11 +139,11 @@ void Funcio_RemoveFromList(Funcionario *Lista, int Cod, int* tam)
         return;
     }
 
-    for(i=pos; i<*tam; i++){
-        Lista[i] = Lista[i+1];
-    }
-
     *tam = *tam-1;
+
+    for(i=pos; i<*tam; i++){
+        (*Lista)[i] = (*Lista)[i+1];
+    }
 }
 
 
@@ -150,16 +151,14 @@ void Funcio_RemoveFromList(Funcionario *Lista, int Cod, int* tam)
      - Recebe: Lista dos Funcionarios, Tamanho da lista, Codigo do Funcionario, Informações Novas (Nome, Ocup)
      - Retorna: Lista com as Informações editadas
 */
-void Funcio_EditFromList(Funcionario *Lista, int tam, int Cod,  char* NovoNome, char* NovaOcupacao)
+void Funcio_EditFromList(Funcionario **Lista, int tam, int Cod,  char* NovoNome, char* NovaOcupacao)
 {
     int i=0;
     for(i=0; i<tam; i++){
-        if(Lista[i].Codigo==Cod){
-            Lista[i].Nome = realloc(Lista[i].Nome, sizeof(NovoNome));
-            strcpy(Lista[i].Nome, NovoNome);
+        if((*Lista)[i].Codigo==Cod){
+            strcpy((*Lista)[i].Nome, NovoNome);
+            strcpy((*Lista)[i].Ocupacao, NovaOcupacao);
 
-            Lista[i].Ocupacao = realloc(Lista[i].Ocupacao, sizeof(NovaOcupacao));
-            strcpy(Lista[i].Ocupacao, NovaOcupacao);
             return;
         }
     }

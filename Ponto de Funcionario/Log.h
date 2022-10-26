@@ -31,33 +31,21 @@ void Log_LerBD(Log **Lista){
 
 		int Cod_Funcio;
 		int Finalidade;
-		//char *Nome_Funcio = (char*)malloc(sizeof(char*));
 		char Horario[21];
 
         int i = 0;
 		while(fscanf(fp, "%i;%i;%[^\n]",&Cod_Funcio, &Finalidade, &Horario)!=EOF){
-
             (*Lista)[i].Cod_Funcio = Cod_Funcio;
-
             (*Lista)[i].Finalidade = Finalidade;
-
-            //(*Lista)[i].Horario = (char*)malloc(sizeof(char*));
             strcpy((*Lista)[i].Horario, Horario);
-
-            /*(*Lista)[i].Nome_Funcio = (char*)malloc(sizeof(char*));
-            strcpy((*Lista)[i].Nome_Funcio, Nome_Funcio);*/
-
-
-            //printf("\nADD LOG LIST Function -> %i - %s - %i", (*Lista)[i].Cod_Funcio, (*Lista)[i].Horario, (*Lista)[i].Finalidade);
 
             i++;
 		}
-		//free(Nome_Funcio);
-		//free(Horario);
+
 		fclose(fp);
 	}
 	else{
-		printf("Erro ao abrir o arquivo Funcionarios.txt");
+		printf("Erro ao abrir o arquivo Log.txt");
 		fclose(fp);
 	}
 }
@@ -87,30 +75,12 @@ void Log_writeBD(Log* Lista, int tam){
     fclose(outfile);
 }
 
-/*
-*/
-void Log_AddToList(Log *Lista, Funcionario* Lista_F, int* tam, int* tam_Funcionario, int Cod, char* Horario, int Finalidade)
+
+void Log_AddToList(Log **Lista, int* tam, int Cod, char Horario[21], int Finalidade)
 {
+    *Lista = realloc(*Lista, ((*tam+1)*sizeof(Log)));
+
     int i=0;
-    char* Nome_Funcio;
-    int bol = 0;
-
-
-    for(i=0; i<*tam_Funcionario; i++){
-        if(Lista_F[i].Codigo==Cod){
-           Nome_Funcio = (char*)malloc(sizeof(Lista_F[i].Nome));
-           strcpy(Nome_Funcio, Lista_F[i].Nome);
-
-           printf("\n%s - %s\n", Nome_Funcio, Lista_F[i].Nome);
-           bol = 1;
-        }
-    }
-
-
-    if(bol==0){
-        printf("Codigo não encontrado\n");
-        return;
-    }
 
     if(Finalidade!=1 && Finalidade!=2 && Finalidade!=3 && Finalidade!=4){
         printf("Finalidade não reconhecida\n");
@@ -118,33 +88,11 @@ void Log_AddToList(Log *Lista, Funcionario* Lista_F, int* tam, int* tam_Funciona
     }
 
 
+    (*Lista)[*tam].Cod_Funcio = Cod;
+    strcpy((*Lista)[*tam].Horario, Horario);
+    (*Lista)[*tam].Finalidade = Finalidade;
 
-
-    Lista[*tam].Cod_Funcio = Cod;
-
-    //Lista[*tam].Horario = (char*)malloc(sizeof(Horario));
-    strcpy(Lista[*tam].Horario, Horario);
-
-    /*Lista[*tam].Nome_Funcio = (char*)malloc(sizeof(Nome_Funcio));
-    strcpy(Lista[*tam].Nome_Funcio, Nome_Funcio);*/
-
-    Lista[*tam].Finalidade = Finalidade;
-
-    printf("\nADD LOG LIST -> %i - %s - %i", Lista[*tam].Cod_Funcio, Lista[*tam].Horario, Lista[*tam].Finalidade);
-
-    *tam = *tam+1;
-}
-
-void Logf_AddToList(Funcionario *Lista, int* tam, int Cod, char* Nome, char* Ocup)
-{
-    //Lista = realloc(Lista, (n*sizeof(Funcionario)));
-    Lista[*tam].Codigo = Cod;
-
-    Lista[*tam].Nome = (char*)malloc(sizeof(Nome));
-    strcpy(Lista[*tam].Nome, Nome);
-
-    Lista[*tam].Ocupacao = (char*)malloc(sizeof(Ocup));
-    strcpy(Lista[*tam].Ocupacao, Ocup);
+    //printf("\nADD LOG LIST -> %i - %s - %i", (*Lista)[*tam].Cod_Funcio, (*Lista)[*tam].Horario, (*Lista)[*tam].Finalidade);
 
     *tam = *tam+1;
 }
