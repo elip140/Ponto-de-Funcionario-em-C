@@ -97,4 +97,23 @@ void Log_AddToList(Log **Lista, int* tam, int Cod, char Horario[21], int Finalid
     *tam = *tam+1;
 }
 
+void Log_ShowLogs(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F){
+    int i=0;
+
+    printf("\n Todos os Logs ");
+    printf("\nCod -- Nome -- Horario -- Finalidade");
+
+    for(i=0; i<tam_L; i++){
+
+        int j=0;
+        for(j=0; j<tam_F; j++){
+            if(Lista_L[i].Cod_Funcio==Lista_F[j].Codigo){
+                printf("\n %i - %s - %s - %i", Lista_L[i].Cod_Funcio, Lista_F[j].Nome, Lista_L[i].Horario, Lista_L[i].Finalidade);
+                break;
+            }
+        }
+    }
+
+}
+
 
