@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
     Teste_Funcio_Edit(&Lista_Funcio, &tam);
 
     Log_ShowLogs(Lista, n, Lista_Funcio, tam);
+    Log_ShowLogFuncio(Lista, n, Lista_Funcio, tam, 1);
 
 
 

@@ -7,6 +7,8 @@ typedef struct Dados{
 	int Finalidade; // 1 = Entrada do Trabalho, 2 = Saida do Trabalho, 3 = Entrada do Almoço, 4 = Saida Para Almoço
 }Log;
 
+char Finalidade[5][20] = {"", "Entrada do Trabalho", "Saida do Trabalho", "Entrada do Almoço", "Saida Para Almoço"};
+
 int Log_LerTam(){
     FILE *fp;
     int tam=0;
@@ -28,8 +30,7 @@ void Log_LerBD(Log **Lista){
 		fscanf(fp, "%i", &tam);
 
 
-
-		int Cod_Funcio;
+        int Cod_Funcio;
 		int Finalidade;
 		char Horario[21];
 
@@ -108,12 +109,36 @@ void Log_ShowLogs(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F){
         int j=0;
         for(j=0; j<tam_F; j++){
             if(Lista_L[i].Cod_Funcio==Lista_F[j].Codigo){
-                printf("\n %i - %s - %s - %i", Lista_L[i].Cod_Funcio, Lista_F[j].Nome, Lista_L[i].Horario, Lista_L[i].Finalidade);
+                printf("\n %i - %s - %s - %s", Lista_L[i].Cod_Funcio, Lista_F[j].Nome, Lista_L[i].Horario, Finalidade[Lista_L[i].Finalidade]);
                 break;
             }
         }
     }
+}
 
+void Log_ShowLogFuncio(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F, int Cod_Funcio){
+    int i=0;
+    int pos=-1;
+
+    for(i=0; i<tam_F; i++){
+        if(Lista_F[i].Codigo==Cod_Funcio){
+            pos = i;
+            break;
+        }
+    }
+
+    if(pos==-1){
+        printf("\nFuncionario não encontrado");
+        return;
+    }
+
+    printf("\n Logs do Funcionario de Cod: %i ", Cod_Funcio);
+    printf("\nCod -- Nome -- Horario -- Finalidade");
+    for(i=0; i<tam_L; i++){
+        if(Lista_L[i].Cod_Funcio==Lista_F[pos].Codigo){
+            printf("\n %i - %s - %s - %s", Lista_L[i].Cod_Funcio, Lista_F[pos].Nome, Lista_L[i].Horario, Finalidade[Lista_L[i].Finalidade]);
+        }
+    }
 }
 
 
