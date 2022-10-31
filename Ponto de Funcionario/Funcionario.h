@@ -14,11 +14,10 @@ typedef struct funcio{
 	char *Ocupacao;
 }Funcionario;
 
-/* Le as informações do txt e as coloca em uma lista de Funcionario
-    - Recebe: Ponteiro para Tamanho
-    - Retorna: Lista com os dados do txt, Tamanho da Lista para o Ponteiro
-    */
 
+/* Le as informações do txt e coloca a quantidade de elementos da Lista de Funcionarios
+    - Retorna: Quantidade de elementos da Lista
+*/
 int Funcio_LerTam(){
     FILE *fp;
     int tam=0;
@@ -32,6 +31,11 @@ int Funcio_LerTam(){
 	}
 }
 
+
+/*  Le as informações do txt e as coloca numa Lista de Funcionarios
+    - Recebe: Ponteiro de uma Lista de Funcionario
+    - Retorna: Lista com as informações do Txt
+*/
 void Funcio_LerBD(Funcionario **Lista){
 	FILE *fp;
 
@@ -161,5 +165,18 @@ void Funcio_EditFromList(Funcionario **Lista, int tam, int Cod,  char* NovoNome,
 
             return;
         }
+    }
+}
+
+/* Mostra todos os items da Lista de Funcionarios (Ordem: Cod, Nome, Ocupação)
+     - Recebe: Lista dos Funcionarios, Tamanho da lista
+*/
+void Funcio_ShowLista(Funcionario *Lista, int tam){
+    int i=0;
+
+    printf("\n Todos os Funcionarios");
+    printf("\nCod -- Nome -- Ocupacao");
+    for(i=0; i<tam; i++){
+        printf("\n %i - %s - %s", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
     }
 }

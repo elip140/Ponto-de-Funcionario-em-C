@@ -9,6 +9,10 @@ typedef struct Dados{
 
 char Finalidade[5][20] = {"", "Entrada do Trabalho", "Saida do Trabalho", "Entrada do Almoço", "Saida Para Almoço"};
 
+
+/* Le as informações do txt e coloca a quantidade de elementos da Lista de LOGs
+    - Retorna: Quantidade de elementos da Lista
+*/
 int Log_LerTam(){
     FILE *fp;
     int tam=0;
@@ -22,6 +26,10 @@ int Log_LerTam(){
 	}
 }
 
+/*  Le as informações do txt e as coloca numa Lista de Logs
+     - Recebe: Ponteiro para Lista de Log
+     - Retorna: As informações do txt na Lista de Log
+*/
 void Log_LerBD(Log **Lista){
 	FILE *fp;
 
@@ -51,7 +59,8 @@ void Log_LerBD(Log **Lista){
 	}
 }
 
-/*
+/* Escreve as informações passadas para um txt para salvar os dados
+    - Recebe: Lista de Logs para salvar, Tamanho da Lista
 */
 void Log_writeBD(Log* Lista, int tam){
     FILE *outfile;
@@ -76,7 +85,10 @@ void Log_writeBD(Log* Lista, int tam){
     fclose(outfile);
 }
 
-
+/* Adiciona um novo Log na Lista de Logs
+    - Recebe: Ponteiro para Lista de LOG, ponteiro para inteiro do tamanho da Lista, Codigo, Horario, Finalidade
+    - Retorna: Lista com o novo elemento, Tamanho atulizado da Lista
+*/
 void Log_AddToList(Log **Lista, int* tam, int Cod, char Horario[21], int Finalidade)
 {
     *Lista = realloc(*Lista, ((*tam+1)*sizeof(Log)));
@@ -98,6 +110,9 @@ void Log_AddToList(Log **Lista, int* tam, int Cod, char Horario[21], int Finalid
     *tam = *tam+1;
 }
 
+/* Escreve na tela todos os elementos da lista de Logs com o Nome presente na Lista de Funcionarios
+    - Recebe: Lista de Logs, Tamanho da Lista de Logs, Lista de Funcionarios, Tamanho da Lista de Funcionarios
+*/
 void Log_ShowLogs(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F){
     int i=0;
 
@@ -116,6 +131,9 @@ void Log_ShowLogs(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F){
     }
 }
 
+/* Escreve na tela todos os Logs de um Funcionario Especifico
+    - Recebe: Lista de Logs, Tamanho da Lista de Logs, Lista de Funcionarios, Tamanho da Lista de Funcionarios, Codigo do Funcionario
+*/
 void Log_ShowLogFuncio(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F, int Cod_Funcio){
     int i=0;
     int pos=-1;

@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
     Log_ShowLogs(Lista, n, Lista_Funcio, tam);
     Log_ShowLogFuncio(Lista, n, Lista_Funcio, tam, 1);
 
+    Funcio_ShowLista(Lista_Funcio, tam);
 
 
     //Funcio_writeBD(Lista_Funcio, n);
