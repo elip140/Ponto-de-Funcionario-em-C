@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+//Função de escolhas gerais sobre funcionarios
 int escolhageral(int escolhaG){
     int x;
     printf("Oque voce deseja fazer?\nDigite (1) para adicionar Funcionarios\nDigite (2) para mudar as informacoes dos Funcionarios\n");
@@ -55,9 +55,9 @@ int vertodos(int escolha){
     return x;
 }
 
-
+//Função principal da tela de funcionarios
 void aloha(){
-    int escolha, escolhaG;
+    int escolha = 0, escolhaG;
 
     while(escolha==0){
         escolhaG = escolhageral(escolhaG);

@@ -41,3 +41,32 @@
 	<stdio.h>
 	<stdlib.h>
 
+1667257498 source:c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funcionario.h"
+	"Log.h"
+	"Teste.h"
+	"TelaInicial.h"
+
+1667255208 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\funcionario.h
+	<stdio.h>
+	<stdlib.h>
+
+1667255208 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\log.h
+	<stdio.h>
+	<stdlib.h>
+
+1667255208 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\teste.h
+	<stdio.h>
+	<stdlib.h>
+
+1667257632 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\telainicial.h
+	<stdio.h>
+	<stdlib.h>
+	"FuncionariosFuncoes.h"
+
+1667257698 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\funcionariosfuncoes.h
+	<stdio.h>
+	<stdlib.h>
+
