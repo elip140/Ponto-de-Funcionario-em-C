@@ -78,7 +78,7 @@ void Funcio_LerBD(Funcionario **Lista){
 void Funcio_writeBD(Funcionario *Lista, int tam){
     FILE *outfile;
 
-    outfile = fopen("Teste.txt", "w");
+    outfile = fopen("Funcionarios.txt", "w");
 
     if(outfile==NULL)
     {
