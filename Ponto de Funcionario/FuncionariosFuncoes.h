@@ -11,52 +11,75 @@ int escolhageral(int escolhaG){
 }
 
 //Função de adicionar funcionários
-int adicionar(int escolha){
-    int x,y;
-    printf("Voce deseja adicionar um funcionario?\nDigite (1) para SIM\nDigite (2): para NAO\n");
-    scanf("%i", &x);
-    if(x==1){
-        return x;
-    }
-    else{
-        return 0;
-    }
+int adicionar(int escolha, Funcionario** listaf, int* tam){
+    puts("Digite o codigo do novo funcionario: ");
+    int cod;
+    scanf("%i", &cod);
+
+    puts("Digite o nome do novo funcionario: ");
+    char nome[100];
+    scanf("%s", &nome);
+
+    puts("Digite a ocupacao do novo funcionario: ");
+    char ocup[100];
+    scanf("%s", &ocup);
+
+    Funcio_AddToList(listaf, tam, cod, nome, ocup);
+    return 0;
 }
 
 //Função para modificar os dados do usuario
-int modificar(int escolha){
+int modificar(int escolha, Funcionario** listaf, int* tam){
+    puts("Digite o codigo do novo funcionario: ");
+    int cod;
+    scanf("%i", &cod);
+
+    puts("Digite o novo nome do novo funcionario: ");
+    char nome[100];
+    scanf("%s", &nome);
+
+    puts("Digite a nova ocupacao do novo funcionario: ");
+    char ocup[100];
+    scanf("%s", &ocup);
+
     int x;
-    printf("Qual informacao voce deseja modificar?\nDigite (1) para o nome\nDigite (2) para a ocupacao\nDigite (0) para cancelar\n");
-    scanf("%i", &x);
-    if(x!=0 && x<=2){
-        return x;
+    printf("Voce deseja confirmar esta operacao?\nDigite (1) para SIM\nDigite (2) para NAO\n");
+    scanf("%i",&x);
+
+    if(x==1){
+        Funcio_EditFromList(listaf, tam, cod, nome, ocup);
     }
+
     return 0;
 }
 
 //Função para excluir os dados do funcionario
-int excluir(int escolha){
+int excluir(int escolha, Funcionario** listaf, int* tam){
+    puts("Digite o codigo do novo funcionario: ");
+    int cod;
+    scanf("%i", &cod);
+
     int x;
     printf("Voce deseja excluir este funcionario da lista?\nDigite (1) para SIM\nDigite (2) para NAO\n");
     scanf("%i",&x);
+
     if(x==1){
-        return x;
+        Funcio_RemoveFromList(listaf, cod, tam);
     }
-    else{
-        return 0;
-    }
+    return 0;
 }
 
 //Função para ver todos os funcionarios
-int vertodos(int escolha){
+int vertodos(int escolha, Funcionario** listaf, int* tam){
     int x;
-    printf("Digite (0) para voltar\n");
+    Funcio_ShowLista(listaf, *tam);
+    printf("\nDigite (0) para voltar\n");
     scanf("%i",&x);
     return x;
 }
 
 //Função principal da tela de funcionarios
-void aloha(){
+int telaF(Funcionario** listaf, int* tam){
     int escolha = 0, escolhaG;
 
     while(escolha==0){
@@ -64,18 +87,18 @@ void aloha(){
 
         switch(escolhaG){
             case 0:
-                break;
+                return 0;
             case 1:
-                escolha = adicionar(escolha);
+                escolha = adicionar(escolha, listaf, tam);
                 break;
             case 2:
-                escolha = modificar(escolha);
+                escolha = modificar(escolha, listaf, tam);
                 break;
             case 3:
-                escolha = excluir(escolha);
+                escolha = excluir(escolha, listaf, tam);
                 break;
             case 4:
-                escolha = vertodos(escolha);
+                escolha = vertodos(escolha, listaf, tam);
                 break;
         }
     }

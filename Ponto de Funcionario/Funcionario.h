@@ -171,12 +171,11 @@ void Funcio_EditFromList(Funcionario **Lista, int tam, int Cod,  char* NovoNome,
 /* Mostra todos os items da Lista de Funcionarios (Ordem: Cod, Nome, Ocupação)
      - Recebe: Lista dos Funcionarios, Tamanho da lista
 */
-void Funcio_ShowLista(Funcionario *Lista, int tam){
+void Funcio_ShowLista(Funcionario **Lista, int tam){
     int i=0;
-
     printf("\n Todos os Funcionarios");
     printf("\nCod -- Nome -- Ocupacao");
     for(i=0; i<tam; i++){
-        printf("\n %i - %s - %s", Lista[i].Codigo, Lista[i].Nome, Lista[i].Ocupacao);
+        printf("\n %i - %s - %s", (*Lista)[i].Codigo, (*Lista)[i].Nome, (*Lista)[i].Ocupacao);
     }
 }

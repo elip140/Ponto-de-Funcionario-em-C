@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     Log* Lista = malloc(n * sizeof(Log));
     Log_LerBD(&Lista);
 
-    telaInicial();
+    telaInicial(&Lista_Funcio, &tam);
 
     int i=0;
     for(i=0; i<tam; i++){

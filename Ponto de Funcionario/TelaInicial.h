@@ -3,7 +3,7 @@
 #include "FuncionariosFuncoes.h"
 
 //Função de escolhas gerais
-int aaa(){
+int geral(){
     int x;
     puts("Oque voce deseja fazer?\n");
     puts("Digite (1) para ir no cadastro de funcionarios");
@@ -15,17 +15,18 @@ int aaa(){
 }
 
 //Função principal da tela inicial
-void telaInicial(){
+void telaInicial(Funcionario** listaf, int* tam){
     int escolha = 0, escolhaG;
 
     while(escolha==0){
-        escolhaG = aaa();
+        escolhaG = geral();
 
         switch(escolhaG){
             case 0:
+                escolha = 1;
                 break;
             case 1:
-                aloha();
+                escolha = telaF(listaf, tam);
                 break;
             case 2:
 
