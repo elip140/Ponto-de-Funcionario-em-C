@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 time_t convertStringToDate(char* str) {
     struct tm  tm;
-    char buffer[30];
     time_t ret;
 
     char *ptr = strtok(str, " ");
@@ -38,7 +36,7 @@ time_t convertStringToDate(char* str) {
     int secondi = atoi(second);
 
     time(&ret);
-    tm = *localtime (&ret);
+    tm = *localtime(&ret);
     tm.tm_year = yeari - 1900;
     tm.tm_mon = monthi - 1;
     tm.tm_mday = dayi;

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 //Função de escolhas gerais sobre funcionarios
-int escolhageral(int escolhaG){
+int escolhageralF(int escolhaG){
     int x;
     printf("Oque voce deseja fazer?\nDigite (1) para adicionar Funcionarios\nDigite (2) para mudar as informacoes dos Funcionarios\n");
     printf("Digite (3) para excluir funcionarios\nDigite (4) para ver todos os funcionarios na lista\n\ndigite (0): para voltar ao menu principal\n");
@@ -83,7 +83,7 @@ int telaF(Funcionario** listaf, int* tam){
     int escolha = 0, escolhaG;
 
     while(escolha==0){
-        escolhaG = escolhageral(escolhaG);
+        escolhaG = escolhageralF(escolhaG);
 
         switch(escolhaG){
             case 0:
