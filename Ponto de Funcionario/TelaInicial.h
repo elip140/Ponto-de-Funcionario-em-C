@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "FuncionariosFuncoes.h"
 #include "LogFuncoes.h"
+#include "TelaPesquisaLogs.h"
 
 //Função de escolhas gerais
 int geral(){
@@ -16,7 +17,7 @@ int geral(){
 }
 
 //Função principal da tela inicial
-void telaInicial(Funcionario** listaf, int* tamf, Log** listal, int* taml){
+void telaInicial(Funcionario** listaf, int* tamF, Log** listal, int* tamL){
     int escolha = 0, escolhaG;
 
     while(escolha==0){
@@ -27,12 +28,13 @@ void telaInicial(Funcionario** listaf, int* tamf, Log** listal, int* taml){
                 escolha = 1;
                 break;
             case 1:
-                escolha = telaF(listaf, tamf);
+                escolha = telaF(listaf, tamF, listal, tamL);
                 break;
             case 2:
-                escolha = telaL(listal, taml);
+                escolha = telaL(listal, tamL);
                 break;
             case 3:
+                escolha = TelaPesquisaLogs(listal, tamL, listaf, tamF);
 
                 break;
         }

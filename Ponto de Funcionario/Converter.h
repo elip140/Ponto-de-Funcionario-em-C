@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-time_t convertStringToDate(char* str) {
+time_t convertStringToDate(char str[21]) {
     struct tm  tm;
+    char buffer[21];
     time_t ret;
 
-    char *ptr = strtok(str, " ");
+    strcpy(buffer, str);
+    char *ptr = strtok(buffer, " ");
 
     char* date1 = ptr;
 	ptr = strtok(NULL, " ");

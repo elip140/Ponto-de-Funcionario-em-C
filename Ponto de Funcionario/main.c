@@ -28,5 +28,6 @@ int main(int argc, char *argv[]) {
         free(Lista_Funcio[i].Ocupacao);
     }
 
+
 	return 0;
 }

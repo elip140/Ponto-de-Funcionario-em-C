@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Converter.h"
+
 
 typedef struct Dados{
 	int Cod_Funcio;
@@ -158,6 +160,47 @@ void Log_ShowLogFuncio(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F,
             printf("\n %i - %s - %s - %s", Lista_L[i].Cod_Funcio, Lista_F[pos].Nome, Lista_L[i].Horario, Finalidade[Lista_L[i].Finalidade]);
         }
     }
+}
+
+void Log_ShowTempoMedio(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F) {
+    int i = 0;
+    double diff = 0;
+
+    for(i=0; i<tam_F; i++){
+        int a = 0;
+        time_t entrada;
+        double medf = 0;
+
+        int j=0;
+        for(j=0; j<tam_L; j++){
+            if(Lista_L[j].Cod_Funcio==Lista_F[i].Codigo){
+                if(Lista_L[j].Finalidade==3) {
+                    entrada = convertStringToDate(&Lista_L[j].Horario);
+                }
+                if(Lista_L[j].Finalidade==4 && entrada != NULL) {
+                    time_t saida = convertStringToDate(&Lista_L[j].Horario);
+                    medf = medf + difftime(saida, entrada);
+                    a = a + 1;
+                }
+            }
+        }
+        if(medf > 0) {
+            diff = diff + medf/a;
+        }
+    }
+
+    if(diff > 0) {
+        diff = diff/tam_F;
+    }
+    int h, m, s;
+
+    h = (diff/3600);
+
+	m = (diff -(3600*h))/60;
+
+	s = (diff -(3600*h)-(m*60));
+
+	printf("%d:%d:%d\n",h,m,s);
 }
 
 

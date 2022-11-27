@@ -89,3 +89,48 @@
 	<stdio.h>
 	<stdlib.h>
 
+1669582657 source:c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"Funcionario.h"
+	"Log.h"
+	"Teste.h"
+	"TelaInicial.h"
+
+1669569209 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\funcionario.h
+	<stdio.h>
+	<stdlib.h>
+
+1669583194 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\log.h
+	<stdio.h>
+	<stdlib.h>
+	"Converter.h"
+
+1669569209 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\teste.h
+	<stdio.h>
+	<stdlib.h>
+
+1669570542 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\telainicial.h
+	<stdio.h>
+	<stdlib.h>
+	"FuncionariosFuncoes.h"
+	"LogFuncoes.h"
+	"TelaPesquisaLogs.h"
+
+1669570631 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\funcionariosfuncoes.h
+	<stdio.h>
+	<stdlib.h>
+
+1669569209 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\logfuncoes.h
+	<stdio.h>
+	<stdlib.h>
+
+1669578044 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\telapesquisalogs.h
+	<stdio.h>
+	<stdlib.h>
+
+1669581248 c:\users\moreira\downloads\projetoemc\ponto-de-funcionario-em-c\ponto de funcionario\converter.h
+	<stdio.h>
+	<stdlib.h>
+

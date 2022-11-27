@@ -11,7 +11,7 @@ int escolhageralF(int escolhaG){
 }
 
 //Função de adicionar funcionários
-int adicionar(int escolha, Funcionario** listaf, int* tam){
+int adicionar(int escolha, Funcionario** listaf, int* tamF){
     puts("Digite o codigo do novo funcionario: ");
     int cod;
     scanf("%i", &cod);
@@ -24,12 +24,12 @@ int adicionar(int escolha, Funcionario** listaf, int* tam){
     char ocup[100];
     scanf("%s", &ocup);
 
-    Funcio_AddToList(listaf, tam, cod, nome, ocup);
+    Funcio_AddToList(listaf, tamF, cod, nome, ocup);
     return 0;
 }
 
 //Função para modificar os dados do usuario
-int modificar(int escolha, Funcionario** listaf, int* tam){
+int modificar(int escolha, Funcionario** listaf, int* tamF){
     puts("Digite o codigo do novo funcionario: ");
     int cod;
     scanf("%i", &cod);
@@ -47,14 +47,14 @@ int modificar(int escolha, Funcionario** listaf, int* tam){
     scanf("%i",&x);
 
     if(x==1){
-        Funcio_EditFromList(listaf, tam, cod, nome, ocup);
+        Funcio_EditFromList(listaf, tamF, cod, nome, ocup);
     }
 
     return 0;
 }
 
 //Função para excluir os dados do funcionario
-int excluir(int escolha, Funcionario** listaf, int* tam){
+int excluir(int escolha, Funcionario** listaf, int* tamF, Log** listal, int* tamL){
     puts("Digite o codigo do novo funcionario: ");
     int cod;
     scanf("%i", &cod);
@@ -64,22 +64,23 @@ int excluir(int escolha, Funcionario** listaf, int* tam){
     scanf("%i",&x);
 
     if(x==1){
-        Funcio_RemoveFromList(listaf, cod, tam);
+        Funcio_RemoveFromList(listaf, cod, tamF);
+        Log_DeleteLogs(listal, tamL, cod);
     }
     return 0;
 }
 
 //Função para ver todos os funcionarios
-int vertodos(int escolha, Funcionario** listaf, int* tam){
+int vertodos(int escolha, Funcionario** listaf, int* tamF){
     int x;
-    Funcio_ShowLista(listaf, *tam);
+    Funcio_ShowLista(listaf, *tamF);
     printf("\nDigite (0) para voltar\n");
     scanf("%i",&x);
     return x;
 }
 
 //Função principal da tela de funcionarios
-int telaF(Funcionario** listaf, int* tam){
+int telaF(Funcionario** listaf, int* tamF, Log** listal, int* tamL){
     int escolha = 0, escolhaG;
 
     while(escolha==0){
@@ -89,16 +90,16 @@ int telaF(Funcionario** listaf, int* tam){
             case 0:
                 return 0;
             case 1:
-                escolha = adicionar(escolha, listaf, tam);
+                escolha = adicionar(escolha, listaf, tamF);
                 break;
             case 2:
-                escolha = modificar(escolha, listaf, tam);
+                escolha = modificar(escolha, listaf, tamF);
                 break;
             case 3:
-                escolha = excluir(escolha, listaf, tam);
+                escolha = excluir(escolha, listaf, tamF, listal, tamL);
                 break;
             case 4:
-                escolha = vertodos(escolha, listaf, tam);
+                escolha = vertodos(escolha, listaf, tamF);
                 break;
         }
     }
