@@ -101,6 +101,7 @@ void Log_AddToList(Log **Lista, int* tam, int Cod, char Horario[21], int Finalid
     }
 
 
+
     (*Lista)[*tam].Cod_Funcio = Cod;
     strcpy((*Lista)[*tam].Horario, Horario);
     (*Lista)[*tam].Finalidade = Finalidade;

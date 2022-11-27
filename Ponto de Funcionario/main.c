@@ -22,10 +22,6 @@ int main(int argc, char *argv[]) {
     Teste_Funcio_Visualizar(&Lista_Funcio, &tam);
     Teste_Log_Visualizar(&Lista, &n);
 
-    Log_DeleteLogs(&Lista, &n, 4);
-
-
-    Teste_Log_Visualizar(&Lista, &n);
 
 
 
@@ -33,14 +29,14 @@ int main(int argc, char *argv[]) {
 
     //telaInicial(&Lista_Funcio, &tam);
 
-    //Funcio_writeBD(Lista_Funcio, tam);
-    //Log_writeBD(Lista, n);
+    Funcio_writeBD(Lista_Funcio, tam);
+    Log_writeBD(Lista, n);
 
-    int i=0;
+    /*int i=0;
     for(i=0; i<tam; i++){
         free(Lista_Funcio[i].Nome);
         free(Lista_Funcio[i].Ocupacao);
-    }
+    }*/
 
 
 	return 0;
