@@ -160,3 +160,34 @@ void Log_ShowLogFuncio(Log *Lista_L, int tam_L, Funcionario *Lista_F, int tam_F,
 }
 
 
+/* Deleta todos os Logs de um Funcionario especifico e reorganiza a lista para não ficar com indices sem dados
+    - Recebe: Lista de Logs, Tamanho da Lista de Logs, Codigo do Funcionario a ser Deletado
+    - Retorna: Lista sem os Logs do funcionario especificado.
+*/
+void Log_DeleteLogs(Log** Lista, int* tam, int Cod_F){
+    int i=0, pos=0;
+    int len = *tam;
+
+    for(i=0; i<len; i++){
+        while((*Lista)[pos].Cod_Funcio==Cod_F && pos<len){
+            pos++;
+            *tam = *tam -1;
+        }
+
+
+        if(pos<len){
+            (*Lista)[i].Cod_Funcio = (*Lista)[pos].Cod_Funcio;
+            (*Lista)[i].Finalidade = (*Lista)[pos].Finalidade;
+            strcpy((*Lista)[i].Horario, (*Lista)[pos].Horario);
+        }
+        else{
+            (*Lista)[i].Cod_Funcio = 0;
+            (*Lista)[i].Finalidade = 0;
+            strcpy((*Lista)[i].Horario, "");
+        }
+
+        pos++;
+    }
+}
+
+
