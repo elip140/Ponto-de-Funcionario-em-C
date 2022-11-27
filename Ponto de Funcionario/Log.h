@@ -17,7 +17,7 @@ int Log_LerTam(){
     FILE *fp;
     int tam=0;
 
-	if(fp=fopen("Teste_Log.txt", "r")){
+	if(fp=fopen("Logs.txt", "r")){
 		fscanf(fp, "%i", &tam);
 		return tam;
 	}
@@ -33,7 +33,7 @@ int Log_LerTam(){
 void Log_LerBD(Log **Lista){
 	FILE *fp;
 
-	if(fp=fopen("Teste_Log.txt", "r")){
+	if(fp=fopen("Logs.txt", "r")){
         int tam;
 		fscanf(fp, "%i", &tam);
 
@@ -65,7 +65,7 @@ void Log_LerBD(Log **Lista){
 void Log_writeBD(Log* Lista, int tam){
     FILE *outfile;
 
-    outfile = fopen("Teste2.txt", "w");
+    outfile = fopen("Logs.txt", "w");
 
     if(outfile==NULL)
     {
