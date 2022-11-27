@@ -3,11 +3,8 @@
 #include <time.h>
 #include "Funcionario.h"
 #include "Log.h"
+#include "Teste.h"
 #include "TelaInicial.h"
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop
-
-*/
 
 
 int main(int argc, char *argv[]) {
@@ -23,6 +20,7 @@ int main(int argc, char *argv[]) {
 
     Funcio_writeBD(Lista_Funcio, tamF);
     Log_writeBD(Lista_Log, tamL);
+
 
     int i=0;
     for(i=0; i<tamF; i++){

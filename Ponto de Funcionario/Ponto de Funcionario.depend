@@ -10,12 +10,13 @@
 	<stdio.h>
 	<stdlib.h>
 
-1666549346 source:c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\main.c
+1669566183 source:c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\main.c
 	<stdio.h>
 	<stdlib.h>
-	<time.h>
 	"Funcionario.h"
 	"Log.h"
+	"Teste.h"
+	"TelaInicial.h"
 
 1666281861 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\json.h
 	<stdio.h>
@@ -25,11 +26,11 @@
 	<stdio.h>
 	<stdlib.h>
 
-1666541367 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\funcionario.h
+1669559956 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\funcionario.h
 	<stdio.h>
 	<stdlib.h>
 
-1666549314 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\log.h
+1669566221 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\log.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -72,6 +73,19 @@
 	<stdlib.h>
 
 1669563781 c:\users\matheus oliveira\documents\git\ponto-de-funcionario-em-c\ponto de funcionario\logfuncoes.h
+	<stdio.h>
+	<stdlib.h>
+
+1667429654 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\teste.h
+	<stdio.h>
+	<stdlib.h>
+
+1667429654 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\telainicial.h
+	<stdio.h>
+	<stdlib.h>
+	"FuncionariosFuncoes.h"
+
+1667429654 c:\users\epcot\documents\github\ponto-de-funcionario-em-c\ponto de funcionario\funcionariosfuncoes.h
 	<stdio.h>
 	<stdlib.h>
 
